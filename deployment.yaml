@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: buggyapp
-        image: 242611730375.dkr.ecr.eu-north-1.amazonaws.com/buggyapp
+        image: 242611730375.dkr.ecr.eu-north-1.amazonaws.com/asg-devsecops/buggyapp
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -36,4 +36,5 @@ spec:
   type: LoadBalancer
   selector:
     app: buggyapp
+
 
