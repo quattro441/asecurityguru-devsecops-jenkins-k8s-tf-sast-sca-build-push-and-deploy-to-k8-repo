@@ -33,14 +33,14 @@ pipeline {
 	stage('Push') {
             steps {
                 script{
-                    docker.withRegistry('https://242611730375.dkr.ecr.eu-north-1.amazonaws.com/quattrosec', 'ecr:eu-north-1:aws-credentials') {
+                    docker.withRegistry('https://242611730375.dkr.ecr.eu-north-1.amazonaws.com/asg-devsecops/buggyapp', 'ecr:eu-north-1:aws-credentials') {
                     app.push("latest")
                     }
                 }
             }
     	}
 	   
-	stage('Kubernetes Deployment of ASG Bugg Web Application') {
+	stage('Kubernetes Deployment of ASG Buggy Web Application') {
 	   steps {
 	      withKubeConfig([credentialsId: 'kubelogin']) {
 		  sh('kubectl delete all --all -n devsecops')
