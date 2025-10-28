@@ -24,7 +24,7 @@ pipeline {
             steps { 
                withDockerRegistry([credentialsId: "dockerlogin", url: ""]) {
                  script{
-                 app =  docker.build("buggyapp")
+                 app =  docker.build("asg-devsecops/buggyapp")
                  }
                }
             }
